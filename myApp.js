@@ -11,8 +11,14 @@ app.get('/', function (req, res) {
     res.sendFile(path);
 })
 
+
+
 app.get('/json', function (req, res) {
-    res.json({"message": "Hello json"});
+  let response = "Hello json";
+  const secret = process.env.MESSAGE_STYLE;
+  if(secret === "uppercase") response = response.toLocaleUpperCase();
+
+  res.json({"message": response});
 })
   
 
