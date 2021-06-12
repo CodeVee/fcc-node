@@ -11,6 +11,11 @@ app.get('/', function (req, res) {
     res.sendFile(path);
 })
 
+app.get('/json', function (req, res) {
+    res.json({"message": "Hello json"});
+})
+  
+
 
 
 
