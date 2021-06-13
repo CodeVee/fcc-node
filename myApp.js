@@ -14,7 +14,7 @@ app.use(function(req, res, next) {
 app.get('/', function (req, res) {
     const path = __dirname + '/views/index.html';
     res.sendFile(path);
-})
+});
 
 
 
@@ -24,8 +24,15 @@ app.get('/json', function (req, res) {
   if(secret === "uppercase") response = response.toLocaleUpperCase();
 
   res.json({"message": response});
-})
+});
   
+
+app.get('/now', function(req, res, next) {
+  req.time = new Date().toString();
+  next();
+}, function(req, res) {
+  res.json({time: req.time});
+});
 
 
 
