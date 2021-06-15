@@ -1,10 +1,12 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
 
 
 console.log('Hello World');
 
 app.use('/public', express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(function(req, res, next) {
   console.log(`${req.method} ${req.path} - ${req.ip}`);
