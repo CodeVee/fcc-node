@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 
 
 
-app.get('/json', function (req, res) {
+app.get('/json', (req, res) => {
   let response = "Hello json";
   const secret = process.env.MESSAGE_STYLE;
   if(secret === "uppercase") response = response.toLocaleUpperCase();
