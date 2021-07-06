@@ -41,10 +41,10 @@ app.get('/:word/echo', (req, res) => {
 });
 
 app.route('/name')
-.get(function (req, res) {
+.get((req, res) => {
   res.json({"name": `${req.query.first} ${req.query.last}`});
 })
-.post(function (req, res) {
+.post((req, res) => {
   res.json({"name": `${req.body.first} ${req.body.last}`});
 });
 
